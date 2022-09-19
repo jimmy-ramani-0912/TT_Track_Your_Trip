@@ -1,7 +1,7 @@
 import "./list.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import Datatable from "../../components/datatable/Datatable";
+import AllUsers from "../../components/AllUsersTable/AllUsers";
 import Login from "../login/Login";
 
 const List = () => {
@@ -11,10 +11,10 @@ const List = () => {
       <Sidebar />
       <div className="listContainer">
         <Navbar />
-        <Datatable />
+        <AllUsers />
       </div>
     </div>
   );
 };
 
-export default List;
+export default List;  
