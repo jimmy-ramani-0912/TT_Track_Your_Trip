@@ -1,4 +1,4 @@
-import "./new.scss";
+import "./AddingUser.scss";
 import axios from "axios";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -6,7 +6,7 @@ import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUpload
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const New = ({ title }) => {
+const AddingUser = ({ title }) => {
   const [file, setFile] = useState("");
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
@@ -150,4 +150,4 @@ const New = ({ title }) => {
   );
 };
 
-export default New;
+export default AddingUser;

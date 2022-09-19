@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import SpecificUserDetail from "../../pages/SpecificUserDetail/SpecificUserDetail";
+import SpecificUserDetail from "../../pages/Adings_Users_Packages/AddingUser";
 
 const AllUsers = () => {
   // const [data, setData] = useState(userRows);

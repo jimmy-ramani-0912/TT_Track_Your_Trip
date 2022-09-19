@@ -1,8 +1,8 @@
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import List from "./pages/list/List";
-import Single from "./pages/single/Single";
-import New from "./pages/new/New";
+import SpecificUserDetail from "./pages/SpecificUserDetail/SpecificUserDetail";
+import AddingUser from "./pages/Adings_Users_Packages/AddingUser";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
@@ -22,19 +22,19 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="users">
               <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
+              <Route path=":userId" element={<SpecificUserDetail />} />
             </Route>
             <Route
               path="new"
               // element={<New inputs={userInputs} title="Add New User" />}
-              element={<New title="Add New User" />}
+              element={<AddingUser title="Add New User" />}
             />
             <Route path="products">
               <Route index element={<List />} />
-              <Route path=":productId" element={<Single />} />
+              <Route path=":productId" element={<SpecificUserDetail />} />
               <Route
                 path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
+                element={<AddingUser inputs={productInputs} title="Add New Product" />}
               />
             </Route>
             <Route path="transactions" element={<Transaction />} />
