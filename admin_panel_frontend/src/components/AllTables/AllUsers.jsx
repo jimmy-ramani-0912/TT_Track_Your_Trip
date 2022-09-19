@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import SpecificUserDetail from "../../pages/Adings_Users_Packages/AddingUser";
+import SpecificUserDetail from "../../pages/SpecificItemDetails/SpecificUserDetail";
 
 const AllUsers = () => {
   // const [data, setData] = useState(userRows);
@@ -41,7 +41,7 @@ const AllUsers = () => {
       .then((data) => {
         if (data.status == 200) {
           console.log(data.data.GetSpecificUser);
-          // <SpecificUserDetail username={data.data.GetSpecificUser.username} email={data.data.GetSpecificUser.email} mobile={data.data.GetSpecificUser.mobileNo} />
+          <SpecificUserDetail username={data.data.GetSpecificUser.username} email={data.data.GetSpecificUser.email} mobile={data.data.GetSpecificUser.mobileNo} />
         }
       })
       .catch((error) => {
@@ -79,7 +79,7 @@ const AllUsers = () => {
     <div className="datatable">
       <div className="datatableTitle">
         Add New User
-        <Link to="/new" className="link">
+        <Link to="/newuser" className="link">
           Add New
         </Link>
       </div>

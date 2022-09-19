@@ -1,10 +1,9 @@
-import "./list.scss";
+import "./UserList.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import AllUsers from "../../components/AllUsersTable/AllUsers";
-import Login from "../login/Login";
+import AllUsers from "../../components/AllTables/AllUsers";
 
-const List = () => {
+const UserList = () => {
  
   return (
     <div className="list">
@@ -17,4 +16,4 @@ const List = () => {
   );
 };
 
-export default List;  
+export default UserList;  
