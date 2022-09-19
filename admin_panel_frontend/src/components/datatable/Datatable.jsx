@@ -1,6 +1,6 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Single from "../../pages/single/Single";
@@ -8,6 +8,8 @@ import Single from "../../pages/single/Single";
 const Datatable = () => {
   // const [data, setData] = useState(userRows);
   const [getUserDetails, setUserDetails] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getUsers();
@@ -36,12 +38,17 @@ const Datatable = () => {
 
   const handleView = (_id) => {
     axios
-      .get("/api/users/" + _id)
+      .get(`/api/users/${_id}`)
       .then((response) => response.data)
       .then((data) => {
-        if (data.status == 200) {
-          console.log(data.data.GetSpecificUser);
-          // <Single username={data.data.GetSpecificUser.username} email={data.data.GetSpecificUser.email} mobile={data.data.GetSpecificUser.mobileNo} />
+        // console.log(_id)
+        if (data.status === 200) {
+          // console.log(data.data.GetSpecificUser);
+          //<Single username={data.data.GetSpecificUser.username} email={data.data.GetSpecificUser.email} mobile={data.data.GetSpecificUser.mobileNo} />
+          // <Link to={`/users/${_id}`}></Link>
+          navigate({
+            pathname: `/users/${_id}`,
+          });
         }
       })
       .catch((error) => {
@@ -58,7 +65,7 @@ const Datatable = () => {
         return (
           <div className="cellAction">
             <Link
-              to="/users/userinfo"
+              to="/users/view"
               onClick={() => handleView(params.row._id)}
               style={{ textDecoration: "none" }}
             >
@@ -79,7 +86,7 @@ const Datatable = () => {
     <div className="datatable">
       <div className="datatableTitle">
         Add New User
-        <Link to="/users/new" className="link">
+        <Link to="/new" className="link">
           Add New
         </Link>
       </div>

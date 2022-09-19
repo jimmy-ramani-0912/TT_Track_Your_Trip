@@ -13,6 +13,7 @@ export const Register = async (req, res, next) => {
     const NewUser = new User({
       // here i don't write req.body directly cuz of it will not provide more security
       username: req.body.username,
+      name: req.body.name,
       mobileNo: req.body.mobileNo,
       email: req.body.email,
       password: HashPassword,

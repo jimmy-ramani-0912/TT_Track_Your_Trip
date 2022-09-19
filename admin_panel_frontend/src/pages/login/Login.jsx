@@ -33,15 +33,18 @@ const Login = () => {
       })
       .then((response) => {
         if (response.status === 200) {
-          navigate({
-            pathname: "/",
-          });
           window.localStorage.setItem("token", response.data.Access_token);
-          window.localStorage.setItem("username", response.data.details.username);
+          window.localStorage.setItem(
+            "username",
+            response.data.details.username
+          );
           console.log(response.data);
           console.log(
             response.data.details.username + "============================="
           );
+          navigate({
+            pathname: "/",
+          });
         }
       })
       .catch((error) => error);

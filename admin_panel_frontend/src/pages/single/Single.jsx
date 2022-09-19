@@ -5,6 +5,7 @@ import Chart from "../../components/chart/Chart";
 import List from "../../components/table/Table";
 
 const Single = () => {
+
   return (
     <div className="single">
       <Sidebar />
