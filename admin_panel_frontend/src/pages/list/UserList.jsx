@@ -1,4 +1,4 @@
-import "./UserList.scss";
+import "./List.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import AllUsers from "../../components/AllTables/AllUsers";

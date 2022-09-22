@@ -69,36 +69,38 @@ export const DeleteRoom = async (req, res, next) => {
 
 //delete specific room of specific hotel
 export const DeleteSpecificRoomOfSpecificHotel = async (req, res, next) => {
-  // const HotelId = req.params.hotelid;
-  // const RoomId = req.params.id;
-  // const RoomNoId = req.params.roomnoid;
+  const HotelId = req.params.hotelid;
+  const RoomId = req.params.id;
+  const RoomNoId = req.params.roomnoid;
 
-  // const HotelName = (await Hotel.findById(HotelId)).name;
-  // const length = (await Room.findById(RoomId)).rooms.length;
+  const HotelName = (await Hotel.findById(HotelId)).name;
+  const length = (await Room.findById(RoomId)).rooms.length;
 
-  // console.log(length + "======================");
-  // for (let i = 0; i < length; i++) {
-  //   const RoomNo_Id = (await Room.findById(req.params.id)).rooms[i]._id;
-  //   if (RoomNo_Id == RoomNoId) {
-  //     try {
-  //       await Room.findById(RoomId).rooms[i].findByIdAndUpdate(RoomNoId, {
-  //         $pull: { rooms: req.params.id },
-  //       });
-  //       res.status(200).json({
-  //         status: 200,
-  //         message:
-  //           "Specific Room Deleted From The Specific Hotel Successfully & Created Rooms Detils is Below ! 🔥🔥🔥",
-  //         data: {
-  //           HotelName: HotelName,
-  //           RoomNoId: RoomNo_Id,
-  //           RoomDetail: (await Room.findById(req.params.id)).rooms[i],
-  //         },
-  //       });
-  //     } catch (error) {
-  //       next(error);
-  //     }
-  //   }
-  // }
+  console.log(length + "======================");
+
+  for (let i = 0; i < length; i++) {
+    const RoomNo_Id = (await Room.findById(req.params.id)).rooms[i]._id;
+    console.log(RoomNo_Id + "fsnnnnnnnklnnnnnnnnnnnnnnnnnnnn");
+    if (RoomNo_Id == RoomNoId) {
+      try {
+        await Room.findById(RoomId).rooms[i].findByIdAndUpdate(RoomNoId, {
+          $pull: { rooms: req.params.id },
+        });
+        res.status(200).json({
+          status: 200,
+          message:
+            "Specific Room Deleted From The Specific Hotel Successfully & Created Rooms Detils is Below ! 🔥🔥🔥",
+          data: {
+            HotelName: HotelName,
+            RoomNoId: RoomNo_Id,
+            RoomDetail: (await Room.findById(req.params.id)).rooms[i],
+          },
+        });
+      } catch (error) {
+        next(error);
+      }
+    }
+  }
 };
 
 // put

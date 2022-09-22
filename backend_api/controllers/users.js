@@ -40,16 +40,16 @@ export const GetSpecificUser = async (req, res, next) => {
     const GetSpecificUser = await User.findById(req.params.id);
     res.status(200).json({
       status: 200,
-      message: "User Record updated Successfully ! ⏰⏰⏰",
+      message: "Get Specific User Record Successfully ! ⏰⏰⏰",
       data: { GetSpecificUser },
     });
-    console.log("User Record updated Successfully ! ⏰⏰⏰");
+    console.log("Get Specific User Record Successfully ! ⏰⏰⏰");
   } catch (error) {
     next(error);
   }
 };
 
-// get specific
+// get all users
 export const GetAllUser = async (req, res, next) => {
   // const failed = true;
   // if (failed) {return next(createerror(401,"error"));}

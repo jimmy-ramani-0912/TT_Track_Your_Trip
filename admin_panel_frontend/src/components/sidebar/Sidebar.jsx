@@ -43,10 +43,12 @@ const Sidebar = () => {
               <span>Users</span>
             </li>
           </Link>
+          <Link to="/tourpackages" style={{ textDecoration: "none" }}>
           <li>
             <ModeOfTravelIcon className="icon" />
             <span>Tour Packages</span>
           </li>
+          </Link>
           <li>
             <HotelIcon className="icon" />
             <span>Hotels</span>

@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const { Schema } = mongoose;
-import slugify from "slugify";
 
 const tourSchema = new mongoose.Schema(
   {

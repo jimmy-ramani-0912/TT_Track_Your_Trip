@@ -1,9 +1,8 @@
-import "./AllUsers.scss";
+import "./AllTables.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import SpecificUserDetail from "../../pages/SpecificItemDetails/SpecificUserDetail";
 
 const AllUsers = () => {
   // const [data, setData] = useState(userRows);
@@ -13,7 +12,7 @@ const AllUsers = () => {
     getUsers();
   }, []);
 
-  function getUsers() {
+  const getUsers = () => {
     axios
       .get("/api/users")
       .then((response) => response.data)
@@ -35,18 +34,7 @@ const AllUsers = () => {
   };
 
   const handleView = (_id) => {
-    axios
-      .get("/api/users/" + _id)
-      .then((response) => response.data)
-      .then((data) => {
-        if (data.status == 200) {
-          console.log(data.data.GetSpecificUser);
-          <SpecificUserDetail username={data.data.GetSpecificUser.username} email={data.data.GetSpecificUser.email} mobile={data.data.GetSpecificUser.mobileNo} />
-        }
-      })
-      .catch((error) => {
-        console.error(`Error:${error}`);
-      });
+    window.localStorage.setItem("userSpecificId", _id);
   };
 
   const actionColumn = [
@@ -58,11 +46,11 @@ const AllUsers = () => {
         return (
           <div className="cellAction">
             <Link
-              to="/users/userinfo"
+              to={"/users/" + params.row._id}
               onClick={() => handleView(params.row._id)}
               style={{ textDecoration: "none" }}
             >
-              <div className="viewButton">View</div>
+              <div className="viewButton" >View</div>
             </Link>
             <div
               className="deleteButton"

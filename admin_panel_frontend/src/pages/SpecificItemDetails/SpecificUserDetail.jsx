@@ -2,8 +2,30 @@ import "./SpecificUserDetail.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const SpecificUserDetail = () => {
+const SpecificUserDetail = (props) => {
+  const [SpecificUserDetail, setSpecificUserDetail] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/api/users/" + window.localStorage.getItem("userSpecificId"))
+      .then((response) => {
+        console.log(response.data.data.GetSpecificUser);
+        setSpecificUserDetail(response.data.data.GetSpecificUser);
+        // console.log(
+        //   SpecificUserDetail.data.data+ "-----------------------------"
+        // );
+      })
+      .catch((error) => {
+        console.error(`Error:${error}`);
+      });
+  }, [SpecificUserDetail]);
+
+  const ChangePage = () => {
+
+  }
 
   return (
     <div className="single">
@@ -12,7 +34,7 @@ const SpecificUserDetail = () => {
         <Navbar />
         <div className="top">
           <div className="left">
-            <div className="editButton">Edit</div>
+            <div className="editButton" onClick={ChangePage}>Edit</div>
             <h1 className="title">Information</h1>
             <div className="item">
               <img
@@ -21,24 +43,61 @@ const SpecificUserDetail = () => {
                 className="itemImg"
               />
               <div className="details">
-                <h1 className="itemTitle">Joe daa</h1>
+                {window.localStorage.getItem("userSpecificId") ? (
+                  <h1 className="itemTitle">{SpecificUserDetail.name}</h1>
+                ) : (
+                  <h1 className="itemTitle">" 😫 "</h1>
+                )}
                 <div className="detailItem">
                   <span className="itemKey">Email:</span>
-                  <span className="itemValue">janedoe@gmail.com</span>
+                  {window.localStorage.getItem("userSpecificId") ? (
+                    <span className="itemValue">
+                      {" "}
+                      {SpecificUserDetail.email}
+                    </span>
+                  ) : (
+                    <h1 className="itemValue">" 😫 "</h1>
+                  )}
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Phone:</span>
-                  <span className="itemValue">+1 2345 67 89</span>
+                  {window.localStorage.getItem("userSpecificId") ? (
+                    <span className="itemValue">
+                      {SpecificUserDetail.mobileNo}
+                    </span>
+                  ) : (
+                    <h1 className="itemValue">" 😫 "</h1>
+                  )}
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Address:</span>
-                  <span className="itemValue">
-                    Elton St. 234 Garden Yd. NewYork
-                  </span>
+                  <span className="itemKey">Tour Packages Booked:</span>
+                  {window.localStorage.getItem("userSpecificId") ? (
+                    <span className="itemValue">
+                      {/* {SpecificUserDetail.TourPackageBooked} */}
+                    </span>
+                  ) : (
+                    <h1 className="itemValue">" 😫 "</h1>
+                  )}
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Country:</span>
-                  <span className="itemValue">USA</span>
+                  <span className="itemKey">Hotel Booked:</span>
+                  {window.localStorage.getItem("userSpecificId") ? (
+                    <span className="itemValue">
+                      {SpecificUserDetail.HotelBooked}
+                    </span>
+                  ) : (
+                    <h1 className="itemValue">" 😫 "</h1>
+                  )}
+                </div>
+                <div className="detailItem">
+                  <span className="itemKey">Room Booked:</span>
+                  {window.localStorage.getItem("userSpecificId") ? (
+                    <span className="itemValue">
+                      {SpecificUserDetail.RoomBooked}
+                    </span>
+                  ) : (
+                    <h1 className="itemValue">" 😫 "</h1>
+                  )}
                 </div>
               </div>
             </div>

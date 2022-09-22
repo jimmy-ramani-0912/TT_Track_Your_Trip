@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 
 //app.use(express.json) //without that we cant post on below links we provide
 //or
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false })); //body parser responsible for parsing the incoming request before handle the it
 app.use(bodyParser.json());
 
 app.use("/api/auth", authRoute);

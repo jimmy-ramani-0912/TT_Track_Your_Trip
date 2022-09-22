@@ -9,6 +9,7 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import Transaction from "./pages/Transactions/Transaction";
+import TourPacakageList from "./pages/list/TourPackageList";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -29,6 +30,8 @@ function App() {
               <Route index element={<UserList />} />
               {/* SpecificUserDetail Component */}
               <Route path=":userId" element={<SpecificUserDetail />} />
+              {/* SpecificUserEdit Component */}
+              {/* <Route path="/edit/:userId" element={< />} /> */}
             </Route>
             {/* Adding New User */}
             <Route
@@ -37,10 +40,10 @@ function App() {
               element={<AddingUser title="Add New User" />}
             />
 
-             {/* TourPackages Related Component */}
-             <Route path="tourpackages">
+            {/* TourPackages Related Component */}
+            <Route path="tourpackages">
               {/* Main Index Component */}
-              <Route index element={<UserList />} />
+              <Route index element={<TourPacakageList />} />
               {/* SpecificTourPackagesDetail Component */}
               <Route path=":tourpackagesId" element={<SpecificUserDetail />} />
             </Route>
