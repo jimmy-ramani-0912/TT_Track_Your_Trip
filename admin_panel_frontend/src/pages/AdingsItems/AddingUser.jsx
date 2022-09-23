@@ -27,7 +27,7 @@ const AddingUser = ({ title }) => {
   let AddUser = (event) => {
     event.preventDefault();
     axios
-      .post("api/auth/register", user)
+      .post("/api/auth/register", user)
       .then((response) => {
         if (response.data != null) {
           console.log(response.data);

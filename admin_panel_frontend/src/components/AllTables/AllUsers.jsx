@@ -22,7 +22,7 @@ const AllUsers = () => {
           console.log(data.data.Users);
         }
       });
-  }
+  };
 
   const handleDelete = (_id) => {
     axios.delete("/api/users/" + _id).then((response) => {
@@ -50,7 +50,7 @@ const AllUsers = () => {
               onClick={() => handleView(params.row._id)}
               style={{ textDecoration: "none" }}
             >
-              <div className="viewButton" >View</div>
+              <div className="viewButton">View</div>
             </Link>
             <div
               className="deleteButton"
@@ -67,7 +67,7 @@ const AllUsers = () => {
     <div className="datatable">
       <div className="datatableTitle">
         Add New User
-        <Link to="/newuser" className="link">
+        <Link to="newuser" className="link">
           Add New
         </Link>
       </div>
@@ -107,7 +107,7 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} />
+          <img className="cellImg" src={params.row.img} alt="" />
           {params.row.username}
         </div>
       );

@@ -2,9 +2,10 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import UserList from "./pages/list/UserList";
 import SpecificUserDetail from "./pages/SpecificItemDetails/SpecificUserDetail";
+import SpecificUserDetailEdit from "./pages/EditItems/SpecificUserDetailEdit";
 import AddingUser from "./pages/AdingsItems/AddingUser";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { productInputs, userInputs } from "./formSource";
+import { productInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -28,17 +29,23 @@ function App() {
             <Route path="users">
               {/* Main Indec Componen */}
               <Route index element={<UserList />} />
+
               {/* SpecificUserDetail Component */}
               <Route path=":userId" element={<SpecificUserDetail />} />
+
               {/* SpecificUserEdit Component */}
-              {/* <Route path="/edit/:userId" element={< />} /> */}
+              <Route path="edit/:userId" element={<SpecificUserDetailEdit />} />
+
+              {/* Adding New User */}
+              <Route
+                path="newuser"
+                // element={<New inputs={userInputs} title="Add New User" />}
+                element={<AddingUser title="Add New User" />}
+              />
             </Route>
-            {/* Adding New User */}
-            <Route
-              path="newuser"
-              // element={<New inputs={userInputs} title="Add New User" />}
-              element={<AddingUser title="Add New User" />}
-            />
+
+            {/* SpecificUserEdit Component */}
+            {/* <Route path="edit/:userId" element={<SpecificUserDetailEdit />} /> */}
 
             {/* TourPackages Related Component */}
             <Route path="tourpackages">
