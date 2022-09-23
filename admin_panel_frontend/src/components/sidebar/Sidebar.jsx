@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 
-const Sidebar = () => {
+const Sidebar = () => { 
   const { dispatch } = useContext(DarkModeContext);
   return (
     <div className="sidebar">
