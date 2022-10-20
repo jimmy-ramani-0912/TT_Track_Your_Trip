@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "bootstrap": "^5.2.1",
-    "react-bootstrap": "^2.5.0",
-    "react-tweet-card": "^0.2.1"
-  }
-}
